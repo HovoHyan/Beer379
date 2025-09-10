@@ -1,0 +1,27 @@
+import React, { useState, useEffect } from "react";
+import "./headerSlide.scss";
+
+const HeaderSlide = ({ isActive, prodImg, slideText }) => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (isActive) {
+      setAnimate(false);
+      const timeout = setTimeout(() => setAnimate(true), 500);
+      return () => clearTimeout(timeout);
+    } else {
+      setAnimate(false);
+    }
+  }, [isActive]);
+
+  return (
+    <div className={`headSlide ${animate ? "headAnimate" : ""}`}>
+      <img src={prodImg} alt="Head" />
+      <div className="headSlideText">
+        <h2>{slideText}</h2>
+      </div>
+    </div>
+  );
+};
+
+export default HeaderSlide;

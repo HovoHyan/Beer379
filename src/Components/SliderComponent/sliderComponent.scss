@@ -1,0 +1,284 @@
+.slideComponent {
+  width: 100%;
+  height: 750px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: #b83923f1;
+
+  .slider {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .textPart {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translate(50%);
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      animation-name: none;
+
+      .prodTitle {
+        padding: 0 10px 0 0;
+        height: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        .allTit {
+          position: absolute;
+          font-size: 43px;
+          letter-spacing: 2px;
+          left: 5px;
+          top: 12px;
+          transform: scaleY(1.8);
+          color: white;
+        }
+        .bWine {
+          width: 200px;
+          position: absolute;
+          font-size: 20px;
+          line-height: 1.05;
+          letter-spacing: 2px;
+          left: 5px;
+          top: 16px;
+          transform: scaleY(1.8);
+          color: white;
+        }
+        .titleColor {
+          width: 100%;
+          height: 46%;
+          border-radius: 8px;
+        }
+      }
+      .prodStats {
+        width: 100%;
+        margin: 10px 0 20px 0;
+        font-size: 14px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        opacity: 0;
+        transform: translate(50%);
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-name: none;
+        .abv {
+          padding-top: 10px;
+          border-top: 5px solid;
+        }
+        .ibu {
+          padding-top: 10px;
+          border-top: 5px solid;
+        }
+      }
+      p {
+        opacity: 0;
+        transform: translate(-50%);
+        animation: none;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        color: white;
+        margin: 20px 0 0;
+      }
+      .buyLink {
+        opacity: 0;
+        transform: translate(-50%);
+        animation: none;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        color: white;
+        margin: 25px 0 0;
+      }
+      .hr {
+        width: 100%;
+        height: 3px;
+        border-radius: 10px;
+        background-color: #fef5e1;
+        margin-top: 5px;
+      }
+    }
+    .prodLink {
+      width: 230px;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translate(50%);
+      animation: none;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      font-size: 14px;
+      color: white;
+      margin-top: 15px;
+      svg {
+        font-size: 25px;
+        margin-left: 10px;
+      }
+    }
+
+    img {
+      opacity: 0;
+      width: 465px;
+      height: 95%;
+      transform: translate(50%);
+      border-radius: 4px;
+      animation: none;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.animate {
+    .textPart {
+      animation-name: toBe;
+      animation-delay: 1.5s;
+      .prodTitle .allTit {
+        font-weight: 400;
+      }
+      .prodStats {
+        opacity: 0;
+        animation-name: toBe;
+        animation-delay: 1.1s;
+      }
+      p {
+        line-height: 1.8;
+        animation-name: toBe;
+        animation-delay: 1.5s;
+      }
+      .buyLink {
+        cursor: pointer;
+        padding: 8px 18px;
+        border-radius: 99px;
+        border-color: white;
+        color: white;
+        border: 3px solid white;
+        transition: all 0.8s;
+        letter-spacing: 2px;
+        font-weight: 600;
+        font-size: 18px;
+        animation-name: toBe;
+        animation-delay: 1.5s;
+
+        &:hover {
+          color: rgb(184, 57, 35);
+          border: 3px solid rgb(184, 57, 35);
+          background-color: white;
+        }
+      }
+      .prodLink {
+        animation-name: toBeLink;
+        animation-delay: 1.5s;
+      }
+    }
+
+    img {
+      animation-name: toBe;
+      animation-delay: 1s;
+    }
+  }
+}
+
+// -------------------- Responsive --------------------
+
+@media screen and (max-width: 1024px) {
+  .slideComponent {
+    height: 100vh;
+    padding: 10px 20px;
+
+    .slider {
+      max-width: 1024px;
+      margin: auto;
+      align-items: center;
+      column-gap: 0;
+
+      .textPart {
+        width: 230px;
+        margin-left: 100px;
+        .prodTitle {
+          height: 56px;
+          .allTit {
+            font-size: 35px;
+            top: 15px;
+          }
+          .bWine {
+            width: 150px;
+            font-size: 16px;
+            line-height: 1.05;
+            letter-spacing: 2px;
+            top: 15px;
+            transform: scaleY(1.8);
+            color: white;
+          }
+        }
+        p {
+          line-height: 1.5;
+          font-size: 10px;
+          margin: 10px 0 0;
+        }
+      }
+      .prodLink {
+        width: 250px;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transform: translate(50%);
+        animation: none;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        font-size: 14px;
+        color: white;
+        margin-top: 15px;
+        svg {
+          font-size: 25px;
+          margin-left: 10px;
+        }
+      }
+      img {
+        width: 200px;
+        height: 300px;
+        position: absolute;
+        left: -15px;
+        top: 25%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+// -------------------- Animations --------------------
+
+@keyframes toBe {
+  from {
+    opacity: 0;
+    transform: translate(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes toBeLink {
+  from {
+    opacity: 0;
+    transform: translate(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
